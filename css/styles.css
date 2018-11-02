@@ -1,0 +1,60 @@
+body {
+    background-image: url("../img/jimmybackground.png");
+    color: white;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-family: 'Montserrat', sans-serif;
+}
+
+h1 {
+    background-color: #330E00;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.navbar {
+    background-color: #330E00;
+    color: white;
+}
+
+#firstImageBanner {
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#secondImageBanner {
+    margin-top: 25px;
+    margin-bottom: 50px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#mainMessage {
+    font-size: 30px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+a:link {
+    color: white;
+}
+
+a:visited {
+    color: white;
+}
+
+a:hover {
+    color: white;
+}
+
+a:active {
+    color: white;
+}
+
+.panelStyle {
+    background-color: #330E00;
+}
+
+.info {
+    display: none;
+}

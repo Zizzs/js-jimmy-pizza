@@ -1,74 +1,39 @@
 <!DOCTYPE html>
 <html>
+<head>
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/styles.css">
     <script src="js/jquery-3.3.1.js"></script>   
     <script src="js/scripts.js"></script>
-<head>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Roboto+Condensed" rel="stylesheet">
     <title>Jimmy's Pizza</title>
     
 </head>
 <body>
-    <h1>Jimmy's Pizza</h1>
+    <nav class="navbar navbar-expand-lg">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="order.html">Order</a>
+            </li>
+        </div>
+    </nav>
     <div class="container">
-        <form id="userInput">
-            <br>
-            <label for="pizzaSizeInput">Choose your desired Pizza Size:</label>
-            <div id="pizzaSizeDiv">
-                <select id="pizzaSizeInput">
-                    <option value="Small">Small</option>
-                    <option value="Medium">Medium</option>
-                    <option value="Large">Large</option>
-                    <option value="Extra Large">Extra Large</option>
-                </select>
-            </div>
-            <div id="pizzaSauceDiv">
-                <select id="pizzaSauceInput">
-                    <option value="Light Sauce">Light Sauce</option>
-                    <option value="Regular Sauce">Regular Sauce</option>
-                    <option value="Extra Sauce">Extra Sauce</option>
-                    <option value="Spicy BBQ Sauce">Spicy BBQ Sauce</option>
-                    <option value="Alfredo Sauce">Alfredo Sauce</option>
-                </select>
-            </div>
-            <div id="pizzaToppingsDiv">
-                <br>
-                <label for="cheese">Cheese</label>
-                <input type="checkbox" name="topping" id="cheeseTopping" value="Cheese">
-                <br>
-                <label for="cheese">Extra Cheese</label>
-                <input type="checkbox" name="topping" id="cheeseExtraTopping" value="Cheese-Extra">
-                <br>
-                <label for="pepperoni">Pepperoni</label>
-                <input type="checkbox" name="topping" id="pepperoniTopping"  value="Pepperoni">
-                <br>
-                <label for="mushrooms">Mushrooms</label>
-                <input type="checkbox" name="topping" id="mushroomsTopping" value="Mushrooms">
-                <br>
-                <label for="onions">Onions</label>
-                <input type="checkbox" name="topping" id="onionsTopping" value="Onions">
-                <br>
-                <label for="sausage">Sausage</label>
-                <input type="checkbox" name="topping" id="sausageTopping" value="Sausage">
-                <br>
-                <label for="jalapenos">Jalapenos</label>
-                <input type="checkbox" name="topping" id="jalapenosTopping" value="Jalapenos">
-                <br>
-                <label for="bacon">Bacon</label>
-                <input type="checkbox" name="topping" id="baconTopping" value="Bacon">
-                <br>
-                <label for="olives">Black Olives</label>
-                <input type="checkbox" name="topping" id="olivesTopping" value="Olives">
-                <br>
-                <label for="peppers">Peppers</label>
-                <input type="checkbox" name="topping" id="peppersTopping" value="Peppers">
-                <br>
-                <label for="pineapple">Pineapple</label>
-                <input type="checkbox" name="topping" id="pineappleTopping" value="Pineapple">
-            </div>
-            
-            <button id="submitbutton" type="submit" class="btn btn-info btn-lg">Build Pizza!</button>
-        </form>
+        <div id="firstImageBanner">
+            <img src="img/jimmypizzabanner.png">
+        </div>
+        <div>
+            <p id="mainMessage">Come to Jimmy's on November 5th and recieve one free small pizza with 2 toppings with an order of two Medium or larger Pizzas!</p>
+        </div>
+        <div id="secondImageBanner">
+            <img src="img/jimmypizzasecondbanner.png">
+        </div>
     </div>
 </body>
 </html>

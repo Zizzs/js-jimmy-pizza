@@ -1,5 +1,5 @@
 //Business Logic
-
+var tempCost;
 //Pizza Object
 function PizzaObject() {
     this.pizzaId = 0,
@@ -87,7 +87,43 @@ PizzaObject.prototype.sizeCost = function() {
         this.pizzaSize[0].cost = 13.99;
     };
 }
-
+//Topping Cost
+function calculateToppingCost(currentTopping) {
+    if (currentTopping === "Cheese") {
+        tempCost = 0;
+        return tempCost;
+    } else if (currentTopping === "Cheese-Extra") {
+        tempCost = .99;
+        return tempCost;
+    } else if (currentTopping === "Pepperoni") {
+        tempCost = 1.25;
+        return tempCost;
+    } else if (currentTopping === "Mushrooms") {
+        tempCost = .75;
+        return tempCost;
+    } else if (currentTopping === "Onions") {
+        tempCost = .75;
+        return tempCost;
+    } else if (currentTopping === "Sausage") {
+        tempCost = 1.25;
+        return tempCost;
+    } else if (currentTopping === "Jalapenos") {
+        tempCost = .75;
+        return tempCost;
+    } else if (currentTopping === "Bacon") {
+        tempCost = 1.99;
+        return tempCost;
+    } else if (currentTopping === "Olives") {
+        tempCost = .75;
+        return tempCost;
+    } else if (currentTopping === "Peppers") {
+        tempCost = .99;
+        return tempCost;
+    } else if (currentTopping === "Pineapple") {
+        tempCost = 1.5;
+        return tempCost;
+    };
+}
 //Sauce Cost
 PizzaObject.prototype.sauceCost = function() {
     if (this.pizzaSauce[0].sauce === "Light Sauce") {
@@ -116,6 +152,7 @@ PizzaObject.prototype.totalPizzaCost = function() {
     this.totalCost = (Math.round(this.totalCost * 10)/10).toFixed(2);
 }
 
+
 //User Interface Logic
 var pizzaObject = new PizzaObject();
 $(document).ready(function(event) {
@@ -123,7 +160,6 @@ $(document).ready(function(event) {
         pizzaObject.nextPizza(); 
         event.preventDefault();
         var cost;
-        var toppingCost;
         var sauceCost;
         var pizzaSize = $("#pizzaSizeInput").val();
         var pizzaSauce = $("#pizzaSauceInput").val();
@@ -140,32 +176,11 @@ $(document).ready(function(event) {
         $("input:checkbox[name=topping]:checked").each(function(){
             toppingInput.push($(this).val());
         });
-        //Tried creating a function with the below if/else loop, kept getting function is not defined(Despite it being in backend logic), So I'm keeping it here.
+
+        //All Cost Related Functions are ran below
         for (i=0; i < toppingInput.length; i++) {
-            if (toppingInput[i] === "Cheese") {
-                toppingCost = 0;
-            } else if (toppingInput[i] === "Cheese-Extra") {
-                toppingCost = .99;
-            } else if (toppingInput[i] === "Pepperoni") {
-                toppingCost = 1.25;
-            } else if (toppingInput[i] === "Mushrooms") {
-                toppingCost = .75;
-            } else if (toppingInput[i] === "Onions") {
-                toppingCost = .75;
-            } else if (toppingInput[i] === "Sausage") {
-                toppingCost = 1.25;
-            } else if (toppingInput[i] === "Jalapenos") {
-                toppingCost = .75;
-            } else if (toppingInput[i] === "Bacon") {
-                toppingCost = 1.99;
-            } else if (toppingInput[i] === "Olives") {
-                toppingCost = .75;
-            } else if (toppingInput[i] === "Peppers") {
-                toppingCost = .99;
-            } else if (toppingInput[i] === "Pineapple") {
-                toppingCost = 1.5;
-            };
-            var tempTopping = new ToppingsObject(toppingInput[i], toppingCost);
+            calculateToppingCost(toppingInput[i]);
+            var tempTopping = new ToppingsObject(toppingInput[i], tempCost);
             pizzaObject.addToppings(tempTopping);
         };
 
@@ -173,7 +188,18 @@ $(document).ready(function(event) {
         pizzaObject.sauceCost();
         pizzaObject.totalPizzaCost();
         console.log(pizzaObject);
-        //console.log(totalPizzaCost);
+        pizzaSizeString = pizzaObject.pizzaSize[0].size.toString();
+        pizzaSauceString = pizzaObject.pizzaSauce[0].sauce.toString();
+        $("#pizzaOutput").append("<p class='clickable' id='"+pizzaObject.pizzaId+"'>"+pizzaObject.pizzaSize[0].size+" pizza ($"+pizzaObject.totalCost+")</p>");
+        $("#pizzaInfoOutput").append('<div class="info" id=info'+pizzaObject.pizzaId+'><p>Size: '+ pizzaSizeString+'</p><p>Sauce: '+ pizzaObject.pizzaSauce[0].sauce+'</p></div>');
+        //$("#pizzaInfoOutput").append('<div class="info" id=info'+pizzaObject.pizzaId+'>Size: '+ pizzaObject.pizzaSauce[0].sauce+'</div>');
+        $(".clickable").click(function(event) {
+            var id = $(this).attr('id');
+            var idName = "#info" + id;
+            console.log(idName);
+            $(idName).show();
+        });
         pizzaObject.nextPizzaId();
+
     });
 });

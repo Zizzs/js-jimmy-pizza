@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="js/jquery-3.3.1.js"></script>   
+    <script src="js/scripts.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Roboto+Condensed" rel="stylesheet">
+    <title>Jimmy's Pizza</title>
+    
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="order.html">Order<span class="sr-only">(current)</span></a></a>
+            </li>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="row" class="mainRow">
+            <div class="col-md-6">
+                <div id="panelLeft" class="panelStyle" class="panel panel-default">
+                    <form id="userInput">
+                        <br>
+                        <label for="pizzaSizeInput">Choose your desired Pizza Size:</label>
+                        <div id="pizzaSizeDiv">
+                            <select id="pizzaSizeInput">
+                                <option value="Small">Small ($6.99)</option>
+                                <option value="Medium">Medium ($8.99)</option>
+                                <option value="Large">Large ($10.99)</option>
+                                <option value="Extra Large">Extra Large ($13.99)</option>
+                            </select>
+                        </div>
+                        <div id="pizzaSauceDiv">
+                            <select id="pizzaSauceInput">
+                                <option value="Light Sauce">Light Sauce (Free)</option>
+                                <option value="Regular Sauce">Regular Sauce (Free)</option>
+                                <option value="Extra Sauce">Extra Sauce ($.10 extra)</option>
+                                <option value="Spicy BBQ Sauce">Spicy BBQ Sauce ($.99 extra)</option>
+                                <option value="Alfredo Sauce">Alfredo Sauce ($.99 extra)</option>
+                            </select>
+                        </div>
+                        <div id="pizzaToppingsDiv">
+                            <br>
+                            <label for="cheese">Cheese (Free)</label>
+                            <input type="checkbox" name="topping" id="cheeseTopping" value="Cheese">
+                            <br>
+                            <label for="cheese">Extra Cheese ($.99 extra)</label>
+                            <input type="checkbox" name="topping" id="cheeseExtraTopping" value="Cheese-Extra">
+                            <br>
+                            <label for="pepperoni">Pepperoni ($1.25 extra)</label>
+                            <input type="checkbox" name="topping" id="pepperoniTopping"  value="Pepperoni">
+                            <br>
+                            <label for="sausage">Sausage ($1.25 extra)</label>
+                            <input type="checkbox" name="topping" id="sausageTopping" value="Sausage">
+                            <br>
+                            <label for="bacon">Bacon ($1.99 extra)</label>
+                            <input type="checkbox" name="topping" id="baconTopping" value="Bacon">
+                            <br>
+                            <label for="mushrooms">Mushrooms ($.75 extra)</label>
+                            <input type="checkbox" name="topping" id="mushroomsTopping" value="Mushrooms">
+                            <br>
+                            <label for="onions">Onions ($.75 extra)</label>
+                            <input type="checkbox" name="topping" id="onionsTopping" value="Onions">
+                            <br>
+                            <label for="jalapenos">Jalapenos ($.75 extra)</label>
+                            <input type="checkbox" name="topping" id="jalapenosTopping" value="Jalapenos">
+                            <br>
+                            <label for="olives">Black Olives ($.75 extra)</label>
+                            <input type="checkbox" name="topping" id="olivesTopping" value="Olives">
+                            <br>
+                            <label for="peppers">Peppers ($.99 extra)</label>
+                            <input type="checkbox" name="topping" id="peppersTopping" value="Peppers">
+                            <br>
+                            <label for="pineapple">Pineapple ($1.50 extra)</label>
+                            <input type="checkbox" name="topping" id="pineappleTopping" value="Pineapple">
+                        </div>
+                        
+                        <button id="submitbutton" type="submit" class="btn btn-info btn-lg">Build Pizza!</button>
+                    </form>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div id="panelRight" class="panelStyle" class="panel panel-default">
+                    <div id="pizzaOutput">
+
+                    </div>
+                    <p id="pizzaInfoOutput"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
