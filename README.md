@@ -23,6 +23,11 @@ _5. Output Pizza Size plus Total Pizza Cost, with ingredients below. Hide ingred
 
 _Clone from github and open index.html_
 
+**OR**
+_Visit the GH-Pages link:_
+
+_https://zizzs.github.io/js-jimmy-pizza/_
+
 _No servers or databases required. All necessary files are within the github repository._
 
 ## Known Bugs

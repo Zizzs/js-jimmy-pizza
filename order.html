@@ -30,7 +30,9 @@
                 <div id="panelLeft" class="panelStyle" class="panel panel-default">
                     <form id="userInput">
                         <br>
-                        <label for="pizzaSizeInput">Choose your desired Pizza Size:</label>
+                        <h2 for="pizzaSizeInput">Build your own Pizza:</h2>
+                        <br>
+                        <h3>Size of Pizza:</h3>
                         <div id="pizzaSizeDiv">
                             <select id="pizzaSizeInput">
                                 <option value="Small">Small ($6.99)</option>
@@ -39,6 +41,8 @@
                                 <option value="Extra Large">Extra Large ($13.99)</option>
                             </select>
                         </div>
+                        <br>
+                        <h3>Pizza Sauce:</h3>
                         <div id="pizzaSauceDiv">
                             <select id="pizzaSauceInput">
                                 <option value="Light Sauce">Light Sauce (Free)</option>
@@ -48,8 +52,9 @@
                                 <option value="Alfredo Sauce">Alfredo Sauce ($.99 extra)</option>
                             </select>
                         </div>
+                        <br>
+                        <h3>Pizza Toppings:</h3>
                         <div id="pizzaToppingsDiv">
-                            <br>
                             <label for="cheese">Cheese (Free)</label>
                             <input type="checkbox" name="topping" id="cheeseTopping" value="Cheese">
                             <br>
@@ -90,6 +95,8 @@
             </div>
             <div class="col-md-6">
                 <div id="panelRight" class="panelStyle" class="panel panel-default">
+                    <h3>Click on Pizzas to view Ingredients.</h3>
+                    <br>
                     <div id="pizzaOutput">
 
                     </div>
