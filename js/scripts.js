@@ -16,7 +16,7 @@ PizzaObject.prototype.nextPizzaId = function() {
 }
 
 PizzaObject.prototype.nextPizza = function() {
-    if (this.toppings.length > 0) {
+    if (this.toppings.length >= 0) {
         this.toppings = [];
         this.toppingId = 0;
         this.pizzaSize = [];
@@ -201,11 +201,15 @@ $(document).ready(function(event) {
 
         var pizzaToppingString = '';
         
-        for (i=0; i<pizzaObject.toppings.length; i++) {
-            var tempTop = pizzaObject.toppings[i].topping;
-            pizzaToppingString = (pizzaToppingString).concat(tempTop);
-            pizzaToppingString = (pizzaToppingString).concat(", ");
-        }
+        if (pizzaObject.toppings.length > 0) {
+            for (i=0; i<pizzaObject.toppings.length; i++) {
+                var tempTop = pizzaObject.toppings[i].topping;
+                pizzaToppingString = (pizzaToppingString).concat(tempTop);
+                pizzaToppingString = (pizzaToppingString).concat(", ");
+            };
+        } else {
+            pizzaToppingString = " None";
+        };
         $("#pizzaOutput").append("<p class='clickable' id='"+pizzaObject.pizzaId+"'>"+pizzaObject.pizzaSize[0].size+" pizza ($"+pizzaObject.totalCost+")</p><div class=info " + "id=info"+pizzaObject.pizzaId+'><p>Size: '+ pizzaSizeString+'</p><p>Sauce: '+ pizzaObject.pizzaSauce[0].sauce+'</p><p>Toppings: '+pizzaToppingString+'</p></div>');
        
         //Tried having some toggles in the below code, but was having issues with some of them not toggling properly. Ended up just keeping the .show

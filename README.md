@@ -27,7 +27,7 @@ _No servers or databases required. All necessary files are within the github rep
 
 ## Known Bugs
 
-_Bug 1: Choosing multiple pizzas of the same type with NO toppings will result in a clog within the pizzaObject, giving it multiple values for both Size and Sauce._
+_Bug 1: <s>Choosing multiple pizzas of the same type with NO toppings will result in a clog within the pizzaObject, giving it multiple values for both Size and Sauce.</s> **FIXED**_
 
 _Bug 2: Navbar links disappear when the window is too small. (Around 900px)_
 
