@@ -1,5 +1,6 @@
 //Business Logic
 var tempCost;
+
 //Pizza Object
 function PizzaObject() {
     this.pizzaId = 0,
@@ -138,18 +139,26 @@ PizzaObject.prototype.sauceCost = function() {
         this.pizzaSauce[0].cost = .99;
     };
 }
-//Total Cost of Pizza
 
+//Total Cost of Pizza
 PizzaObject.prototype.totalPizzaCost = function() {
     
     this.totalCost += this.pizzaSize[0].cost;
     this.totalCost += this.pizzaSauce[0].cost;
-    for (i=0; i < this.toppings.length; i++) {
-        this.totalCost += this.toppings[i].cost;
+    //debugger;
+    if (this.toppings.length > 0) {
+        for (i=0; i < this.toppings.length; i++) {
+            this.totalCost += this.toppings[i].cost;
+        };
     };
     percentage = (8.25 / 100) * this.totalCost;
     this.totalCost += percentage;
-    this.totalCost = (Math.round(this.totalCost * 10)/10).toFixed(2);
+    tempString = this.totalCost;
+    numStr = tempString.toString();
+    tempIndex = (numStr.indexOf('.')+3);
+    numStr = numStr.slice(0, tempIndex);
+    this.totalCost = numStr;
+    //this.totalCost = (Math.round(this.totalCost * 10)/10).toFixed(2);
 }
 
 
@@ -188,17 +197,25 @@ $(document).ready(function(event) {
         pizzaObject.sauceCost();
         pizzaObject.totalPizzaCost();
         console.log(pizzaObject);
-        pizzaSizeString = pizzaObject.pizzaSize[0].size.toString();
-        pizzaSauceString = pizzaObject.pizzaSauce[0].sauce.toString();
-        $("#pizzaOutput").append("<p class='clickable' id='"+pizzaObject.pizzaId+"'>"+pizzaObject.pizzaSize[0].size+" pizza ($"+pizzaObject.totalCost+")</p>");
-        $("#pizzaInfoOutput").append('<div class="info" id=info'+pizzaObject.pizzaId+'><p>Size: '+ pizzaSizeString+'</p><p>Sauce: '+ pizzaObject.pizzaSauce[0].sauce+'</p></div>');
-        //$("#pizzaInfoOutput").append('<div class="info" id=info'+pizzaObject.pizzaId+'>Size: '+ pizzaObject.pizzaSauce[0].sauce+'</div>');
+        var pizzaSizeString = pizzaObject.pizzaSize[0].size.toString();
+
+        var pizzaToppingString = '';
+        
+        for (i=0; i<pizzaObject.toppings.length; i++) {
+            var tempTop = pizzaObject.toppings[i].topping;
+            pizzaToppingString = (pizzaToppingString).concat(tempTop);
+            pizzaToppingString = (pizzaToppingString).concat(", ");
+        }
+        $("#pizzaOutput").append("<p class='clickable' id='"+pizzaObject.pizzaId+"'>"+pizzaObject.pizzaSize[0].size+" pizza ($"+pizzaObject.totalCost+")</p><div class=info " + "id=info"+pizzaObject.pizzaId+'><p>Size: '+ pizzaSizeString+'</p><p>Sauce: '+ pizzaObject.pizzaSauce[0].sauce+'</p><p>Toppings: '+pizzaToppingString+'</p></div>');
+       
+        //Tried having some toggles in the below code, but was having issues with some of them not toggling properly. Ended up just keeping the .show
         $(".clickable").click(function(event) {
             var id = $(this).attr('id');
             var idName = "#info" + id;
             console.log(idName);
             $(idName).show();
         });
+        
         pizzaObject.nextPizzaId();
 
     });

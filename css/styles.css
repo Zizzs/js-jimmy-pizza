@@ -53,8 +53,16 @@ a:active {
 
 .panelStyle {
     background-color: #330E00;
+    margin-top: 50px;
 }
 
 .info {
+    font-size: 10px;
     display: none;
+}
+
+@media (max-width:992px) {
+    #nav-main ul.sf-menu {
+        display: block !important;
+    }
 }
